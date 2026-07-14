@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bestie ✨</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Fredoka:wght@400;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="main-body">
+
+    <img src="https://i.pinimg.com/1200x/2c/25/0f/2c250f7860ce4019709a7cdcd950a6a2.jpg" alt="BG" class="full-screen-bg" id="passcode-bg-img">
+    <img src="https://i.pinimg.com/1200x/c7/0c/5e/c70c5e535da5a94b3839ee16c83cc9f6.jpg" alt="BG" class="full-screen-bg hidden-page" id="welcome-bg-img">
+    <img src="https://i.pinimg.com/736x/0f/7d/c7/0f7dc774a3bae8057a7705b9936ae155.jpg" alt="BG" class="full-screen-bg hidden-page" id="letters-bg-img">
+
+    <div id="page-passcode" class="passcode-container-full">
+        <div class="passcode-wrapper">
+            <h2 class="screenshot-title">Enter a passcode</h2>
+            <div class="boxes-container">
+                <div class="code-box" id="box-0"></div><div class="code-box" id="box-1"></div>
+                <div class="code-box" id="box-2"></div><div class="code-box" id="box-3"></div>
+            </div>
+            <div class="screenshot-keypad">
+                <button onclick="pressKey('1')" class="num-key">1</button><button onclick="pressKey('2')" class="num-key">2</button><button onclick="pressKey('3')" class="num-key">3</button>
+                <button onclick="pressKey('4')" class="num-key">4</button><button onclick="pressKey('5')" class="num-key">5</button><button onclick="pressKey('6')" class="num-key">6</button>
+                <button onclick="pressKey('7')" class="num-key">7</button><button onclick="pressKey('8')" class="num-key">8</button><button onclick="pressKey('9')" class="num-key">9</button>
+                <button onclick="clearCode()" class="num-key utility-key icon-clear"><i class="fa-solid fa-rotate-left"></i></button>
+                <button onclick="pressKey('0')" class="num-key">0</button>
+                <button onclick="checkPasscode()" class="num-key utility-key icon-unlock"><i class="fa-solid fa-unlock-keyhole"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-welcome" class="passcode-container-full hidden-page">
+        <div class="welcome-box">
+            <h1 class="welcome-heading"><b>Hello</b></h1>
+            <p class="welcome-paragraph" id="typing-text"></p>
+            <button onclick="goToLetters()" id="next-btn" class="btn next-btn fade-in-btn hidden-page">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div id="page-letters" class="passcode-container-full hidden-page">
+        <h2 class="letters-heading">Open Your Surprises</h2>
+        <div class="envelopes-wrapper">
+            <div class="envelope" onclick="openLetter(1)"><div class="flap"></div><span class="envelope-text">Letter 1</span></div>
+            <div class="envelope" onclick="openLetter(2)"><div class="flap"></div><span class="envelope-text">Letter 2</span></div>
+            <div class="envelope" onclick="openLetter(3)"><div class="flap"></div><span class="envelope-text">Letter 3</span></div>
+        </div>
+        <button onclick="goToNextPage()" class="btn next-btn-bg">Next <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+    <div id="page-open-letter" class="passcode-container-full hidden-page">
+        <div class="open-letter-paper">
+            <h2 id="letter-title" class="letter-heading"></h2>
+            <p id="letter-content" class="letter-body"></p>
+            <button onclick="closeLetter()" class="btn back-btn-inside"><i class="fa-solid fa-arrow-left"></i> Back</button>
+        </div>
+    </div>
+
+    <div id="page-next" class="passcode-container-full hidden-page">
+        <img src="https://i.pinimg.com/736x/1e/c7/b6/1ec7b64dde10b773e5377c305faa1f1c.jpg" class="full-screen-bg">
+        <div class="photo-frame">
+            <img src="https://i.pinimg.com/736x/06/0a/0f/060a0f1f0486c7a36f1b5b452fbacab8.jpg" class="main-photo">
+
+            <!-- <h1>Please</h1> -->
+        </div>
+        <button onclick="goToFinalPage()" class="btn next-btn-bg">Next <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+
+    <div id="page-proposal" class="passcode-container-full hidden-page">
+        <img src="https://i.pinimg.com/1200x/b7/87/26/b787266db9b5764891bf5390b32aa348.jpg" class="full-screen-bg">
+        <div class="proposal-box">
+            <h2 class="proposal-text">So, do you accept this?</h2>
+            <div class="button-group">
+                <button onclick="showResponse('yes')" class="btn yes-btn">Yes</button>
+                <button id="no-btn" onmouseover="moveNoButton()" class="btn no-btn">No</button>
+            </div>
+            <p id="response-message" class="response-text"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
